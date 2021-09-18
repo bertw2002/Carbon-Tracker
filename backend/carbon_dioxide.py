@@ -15,13 +15,18 @@ class Carbon():
         self.locations = location_list
         self.mode = "driving"
         self.key = os.environ.get('GOOGLE_API_KEY')
-        self.building_geo_mappings = {'Martel' : '29.7217,-95.3977', 'Brown': '29.7215,-95.3963', 'Hanszen': '29.7158,-95.4002',
-            'Lovett':'29.7163,-95.3980', 'Wiess':'29.7147,-95.3998','Jones':'29.7215, -95.3698',
-            'Duncan':'29.7218,-95.3985', 'McMurtry':'29.7204,-95.3978', 'Sid Richardson':'29.7151,-95.3991',
-            'Baker': '29.7170,-95.3991', 'Will Rice': '29.7164,-95.3987', 'Herzstein Hall':'29.7187531,-95.3993396','Sewall Hall':'29.71716,-95.4003', 'Keck Hall': '29.71716, -95.4003274', 
-            'RMC':'29.71716,-95.4003', 'Fondren':'29.7171619,-95.4003274', 'Cambridge Office Building':'29.7166941, -95.3988713', 
-            'Brockman Hall': '29.7170462,-95.4045214', 'Dell Butcher Hall':'29.7170462,-95.4045214', 'Rec center':'29.7165576,-95.4048481', 
-            'Shepherd School of Music':'29.7165576,-95.4048481'}
+        self.building_geo_mappings = {'Martel' : '29.72177,-95.39768', 'Brown': '29.72167,-95.39629', 'Hanszen': '29.71593,-95.40020',
+            'Lovett':'29.71644,-95.39805', 'Wiess':'29.71523,-95.40079','Jones':'29.72166, -95.39680',
+            'Duncan':'29.72199,-95.39849', 'McMurtry':'29.72062,-95.39773', 'Sid Richardson':'29.71514,-95.39905',
+            'Baker': '29.71705,-95.39911', 'Will Rice': '29.71652,-95.39869', 'Herzstein Hall':'29.71933,-95.39851','Sewall Hall':'29.71821,-95.39773', 'Keck Hall': '29.71977, -95.39990', 
+            'RMC':'29.71797,-95.40179', 'Fondren':'29.71829,-95.40008', 'Cambridge Office Building':'29.71760, -95.39806', 
+            'Brockman Hall': '29.71976,-95.40160', 'Dell Butcher Hall':'29.71980,-95.40337', 'Rec center':'29.71824,-95.40326', 
+            'Shepherd School of Music':'29.71621,-95.40527', 'Duncan Hall':'29.72043,-95.39860', 'Ryon Laboratory':'29.72072,-95.40057', 'Mudd Building':'29.72047,-95.40103', 'Hamman Hall':'29.72017,-95.40180',
+            'MD Anderson Labs':'29.71869,-95.40230', 'McNair Hall':'29.71759,-95.40343', 'Herring Hall':'29.71693,-95.40119', 'Brochstein Pavilion':'29.71789,-95.40066', 'Humanities Building':'29.71754,-95.39946', 'Rice Bikes':'29.71682,-95.40041', 'Kraft Hall':'29.71576,-95.40242',
+            'Tudor Fieldhouse':'29.71539,-95.40352', 'Skyspace':'29.71662,-95.40400', 'Baker Institute':'29.71655,-95.40251', 'Jones School of Business':'29.71764,-95.40270', 'Valhalla':'29.71933,-95.40024', 'OEDK': '29.72112,-95.40126', 'Abercrombie':'29.72088, -95.39906', 'Lovett Hall':'29.71905,-95.39774',
+            'Reckling Park':'29.71339,-95.40410', 'Moody Center for the Arts':'29.71425,-95.40549', 'Glasscock School':'29.71482,-95.40640', 'Rice Media Center':'29.71410, -95.40602', 'Tennis Courts':'29.71831,-95.40779', 'Rice Stadium':'29.71641,-95.40908', 'Patterson Center':'29.71733,-95.40831', 'Rice Bike Track':'29.71616,-95.41093',
+            'Rayzor Hall':'29.71801,-95.39903', 'Anderson Hall': '29.71896,-95.39974', 'Liu Idea Lab':'29.71714,-95.39717', 'West Servery':'29.72111,-95.39847', 'North Servery':'29.72193,-95.39655', 'Baker Servery':'29.71706,-95.39948', 'South Servery':'29.71524,-95.40121', 'Seibel Servery':'29.71609,-95.39820', 'Sid Richardson Servery':'29.71522,-95.39883', 'Holloway Field':'29.71294,-95.40207', 'Founders Court':'29.71939,-95.39719',
+            'Greenbriar Lot':'29.71645,-95.41198', 'West Lot':'29.71654,-95.40678', 'North Lot':'29.72052,-95.40273', 'South Lot':'29.71542,-95.39813', 'Founders Court Lot':'29.71863, -95.39675', 'Lovett Hall Lot':'29.72000,-95.39729', 'North Colleges Lot':'29.72108,-95.39494', 'Hess Lot':'29.71344,-95.40521'}
 
     def total_distance(self):
         ttl_distance = 0.0
@@ -53,5 +58,6 @@ class Carbon():
                 
 if __name__ == "__main__":
     carbon = Carbon(['Martel', 'Wiess', 'Herzstein Hall'])
-    print("Carbon saved: " + str(carbon.carbon_dioxide_saved()) + " pounds")
-    
+    # print("Carbon saved: " + str(carbon.carbon_dioxide_saved()) + " pounds")
+    for building in carbon.building_geo_mappings:
+        print(building)
