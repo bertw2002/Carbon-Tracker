@@ -32,27 +32,44 @@ def createAccount():
 
     return render_template("register.html")
 
-@app.route("/interactivepage/<username>")
+@app.route("/interactivepage/<username>", methods=["POST", "GET"])
 def interactivePage(username):
-    # if request.method == "POST":
-    #     loc0 = request.form["loc0"]
-    #     loc1 = request.form["loc1"]
-    #     loc2 = request.form["loc2"]
-    #     loc3 = request.form["loc3"]
-    #     loc4 = request.form["loc4"]
-    #     loc5 = request.form["loc5"]
+    if request.method == "POST":
+        loc0 = request.form["loc0"]
+        loc1 = request.form["loc1"]
+        loc2 = request.form["loc2"]
+        loc3 = request.form["loc3"]
+        loc4 = request.form["loc4"]
 
-    #     mode1 = request.form["mode1"]
-    #     mode2 = request.form["mode2"]
-    #     mode3 = request.form["mode3"]
-    #     mode4 = request.form["mode4"]
-    #     mode5 = request.form["mode5"]
+        mode1 = request.form["mode1"]
+        mode2 = request.form["mode2"]
+        mode3 = request.form["mode3"]
+        mode4 = request.form["mode4"]
 
-    #     locations = [loc0, loc1, loc2, loc3, loc4, loc5]
-    #     modes = [mode1, mode2, mode3, mode4, mode5]
+        templocations = [loc0, loc1, loc2, loc3, loc4]
+        locations = []
+        for loc in templocations:
+            if loc != '':
+                locations.append(loc)
 
-    #     print(locations)
-    #     print(modes)
+        tempmodes = [mode1, mode2, mode3, mode4]
+        modes = []
+        for mode in tempmodes:
+            if mode != '':
+                modes.append(mode)
+
+
+
+        # schedule = ''
+        # schedule += 'Your schedule for the day is as follows: Starting at ' + locations[0] + ', '
+        # for i in range(1, locations):
+        #     schedule += modes[i] + ' to ' + locations[i] + ', '
+        # schedule += 'etc.'
+        
+        print(locations)
+        print(modes)
+        #print(schedule)
+
 
     return render_template("interactivepage.html")
 
