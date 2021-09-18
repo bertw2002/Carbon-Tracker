@@ -1,9 +1,17 @@
+Members:
+
+  Alan Tapper (AT)
+  Albert Wan (AW)
+  Howie Qian (HQ)
+  Akash Karanam (AK)
+
 Overall Project Idea:
 
-  Fitness tracker based on daily schedule focused on sutainability using data
-  User puts in locations and other data
+  Fitness tracker designed specifically for college students
+  Focused on sutainability using data such as a user's daily schedule
   App tracks your movement and gives feedback on calories burned, carbon saved, etc.
   The app gives you suggestions on ways to save carbon, get more fit, save time, etc.
+  User puts in locations and other data
 
 
 Components:
@@ -14,6 +22,7 @@ Components:
     Dashboard showing stats
     User inputs data to the system
     Account system?
+    A system to view all data (data stored anonymously)
 
   Back End:
   
