@@ -11,9 +11,9 @@
       Edit Your Schedule
     </h1>
 
-    <form action="/app.py">
-      <label for="locationselect">Choose your "Home" Location:</label>
-      <input type="text" name="homeloc" id="homeloc" list="locations">
+    <form method="POST">
+      <label for="locationselect">First Location:</label>
+      <input type="text" name="loc0" id="loc0" list="locations">
 
       <p></p>
 
@@ -25,11 +25,35 @@
       <label for="locationselect">Next Location:</label>
       <input type="text" name="loc1" id="loc1" list="locations">
 
+      <p></p>
+
+      <label for="transportmodeselect">Choose a mode of transportation:</label>
+      <input type="text" name="mode2" id="mode2" list="modes">
 
       <p></p>
 
-      
-      <input type="button" id="button" name="Add Location">
+      <label for="locationselect">Next Location:</label>
+      <input type="text" name="loc2" id="loc2" list="locations">
+
+      <p></p>
+
+      <label for="transportmodeselect">Choose a mode of transportation:</label>
+      <input type="text" name="mode3" id="mode3" list="modes">
+
+      <p></p>
+
+      <label for="locationselect">Next Location:</label>
+      <input type="text" name="loc4" id="loc4" list="locations">
+
+      <p></p>
+
+      <label for="transportmodeselect">Choose a mode of transportation:</label>
+      <input type="text" name="mode5" id="mode5" list="modes">
+
+      <p></p>
+
+      <label for="locationselect">Next Location:</label>
+      <input type="text" name="loc5" id="loc5" list="locations">
 
       <input type="submit" id="button" name="Submit">
     </form>
