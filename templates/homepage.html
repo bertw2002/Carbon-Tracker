@@ -7,23 +7,39 @@
     <link rel="stylesheet" href="/static/styles/homepage.css">
   </head>
   <body>
-    <h1 id="heading">Some appealing title</h1>
-    <div class="textbox">
+    <div class="split left">
+      <div id="body1">
+        <h1 id="heading">Some appealing title</h1>
+
+        <form method="POST">
+          <div id="textbox">
+            <input type="text" name="username" placeholder="username">
+          </div>
+          <div id="textbox">
+            <input type="password" name="password" placeholder="password">
+          </div>
+          <input id="button" type="submit" name="login-button" value="Log In">
+        </form>
+
+        <form action="/register" method="GET">
+          <button name="register-button" value="Create An Account" class="but1"> Register </button>
+        </form>
+      </div>
     </div>
-
-    <form action="" method="POST">
-      <div id="textbox">
-        <input type="text" name="username" placeholder="username">
+    <div class="split right">
+      <div id="text">
+        <div id="aboutus"> About us </div>
+        <br>
+        <hr style="width:20%">
+        <br>
+        <div> Our website allows a Rice student to see in what way they have impacted the environment.
+              Specifically, the Rice student creates a daily journal logging their activities and we
+              give the specific energy/calories/used up. No idea whagt im talkoign abotu here, just want
+              to create xosme text. rgy/calories/used up. No idea whagt im talkoign abotu here, just want
+              to create xosme text.rgy/calories/used up. No idea whagt im talkoign abotu here, just want
+              to create xosme text.</div>
       </div>
-      <div id="textbox">
-        <input type="password" name="password" placeholder="password">
-      </div>
-      <input id="button" type="submit" name="login-button" value="Log In">
-    </form>
-
-    <form action="/register" method="GET">
-      <button name="register-button" value="Create An Account" class="but1"> Register </button>
-    </form>
+    </div>
   </body>
 </center>
 </html>

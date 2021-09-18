@@ -32,14 +32,49 @@
     margin: 12px 0;
 }
 
-body {
-    width: 280px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #191970;
-    font-family: sans-serif;
+#body1{
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #191970;
+  font-family: sans-serif;
+}
+
+.split{
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.right {
+  right:0;
+  background-color: #284F8F;
+  z-index: 0;
+}
+
+#aboutus {
+  font-size: 60px;
+}
+
+br {
+    line-height: 40%;
+}
+
+#text{
+  line-height:40px;
+  position:absolute;
+  width:80%;
+  right:10%;
+  top: 20%;
+  color:white;
+  z-index: 1;
+  font-family: georgia;
 }
 
 .but1{
