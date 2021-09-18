@@ -11,8 +11,8 @@ import sqlite3
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello World!"
+def root():
+    return render_template('homepage.html')
 
 # has logout button to log out
 @app.route("/homepage")
@@ -33,5 +33,4 @@ def createAccount():
 
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()
+    app.run(debug=True)

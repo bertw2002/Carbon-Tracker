@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+}
+#heading {
+
+}
+
+#textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+}
+
+#button {
+    width: 100%;
+    padding: 8px;
+    color: #ffffff;
+    background: none #191970;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+body {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #191970;
+}
