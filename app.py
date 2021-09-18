@@ -1,37 +1,41 @@
 from flask import Flask
-from flask import render_template
-from flask import request
-from flask import session
-from flask import redirect
-from flask import url_for
+from flask import render_template, request, session, redirect, url_for
 import os
-import sqlite3
-from utl.dbFunction import create
+from utl.dbFunction import createDB, addUser, checkUsername, checkUser
 
 app = Flask(__name__)
-create()
+createDB()
 
-@app.route("/")
+@app.route("/", methods=["POST","GET"])
 def root():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        userValid = checkUser(username, password)
+        if username == "" or password =="":
+            return render_template('homepage.html')
+        if userValid:
+            return redirect(url_for("interactivePage", username=username))
+
     return render_template('homepage.html')
-
-# has logout button to log out
-@app.route("/homepage")
-def homepage():
-    #if logged, display main page, else return
-    return render_template("homepage.html")
-
-
-# login page with form which sends request to /auth route
-@app.route("/login")
-def login():
-    return render_template("login.html")
 
 
 # removes session data for username
-@app.route("/register")
+@app.route("/register", methods=["POST","GET"])
 def createAccount():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        if not checkUsername(username):
+            addUser(username, password)
+            return redirect(url_for("root"))
+
     return render_template("register.html")
+
+@app.route("/interactivepage/<username>")
+def interactivePage(username):
+
+    return render_template("interactivepage.html")
 
 
 if __name__ == "__main__":
