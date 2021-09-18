@@ -69,6 +69,10 @@ def interactivePage(username):
         print(locations)
         print(modes)
         #print(schedule)
+        if len(modes)==0 or len(locations)==0:
+            return render_template("interactivepage.html", username=username)
+        if len(locations) - len(modes) !=1:
+            return render_template("interactivepage.html", username=username)
         userDataToDB(username, locations, modes)
         printDB()
         return render_template("interactivepage.html", username=username)
