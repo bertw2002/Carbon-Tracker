@@ -130,9 +130,20 @@
     </datalist>
     <datalist id="modes">
       <option value="Walking"></option>
-      <option value="Biking"></option>
+      <option value="Biking or Skating"></option>
       <option value="Driving"></option>
     </datalist>
+    <div>
+      <br>
+      {% if lenloc != -1 %}
+        Travel Itinerary:
+        {% for idx in range(lenloc - 1) %}
+          <li>{{loc[idx]}} {{m[idx]}} to {{loc[idx+1]}}</li>
+        {% endfor %}
+      {%else%}
+        Wrong Combination
+      {% endif %}
+    </div>
   </body>
 </center>
 </html>
