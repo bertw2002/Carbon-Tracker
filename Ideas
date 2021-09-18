@@ -8,8 +8,10 @@ Rice bus system
 
 UX:
 
-App
+Web Application
 Dashboard showing stats
+User puts in locations
+App Tracks your movement and gives feedback on calories burned, carbon saved, etc.
 
 
 Challenges:
