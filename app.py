@@ -79,7 +79,7 @@ def interactivePage(username):
 
 
 
-    return render_template("interactivepage.html", loc=locations, m=modes, username=username)
+    return render_template("interactivepage.html", lenloc=-1,username=username)
 
 if __name__ == "__main__":
     app.run(debug=True)
