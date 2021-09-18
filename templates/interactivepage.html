@@ -11,7 +11,7 @@
       Edit Your Schedule
     </h1>
 
-    <form action="/interactivepage/view" method="POST">
+    <form id="locsmodes" action="/interactivepage/view" method="POST">
       <label for="locationselect">First Location:</label>
       <input type="text" name="loc0" id="loc0" list="locations">
 
@@ -50,27 +50,25 @@
       <label for="transportmodeselect">Choose a mode of transportation:</label>
       <input type="text" name="mode4" id="mode4" list="modes">
 
-      <p></p>
-
       <label for="locationselect">Next Location:</label>
       <input type="text" name="loc4" id="loc4" list="locations">
 
-      <input type="submit" id="button" name="Submit">
+
+      <input type="submit" form="locsmodes" id="button" name="Submit">
     </form>
 
     <datalist id="locations">
-      <option value="default">Select...</option>
-      <option value="Baker">6320 Main St.</option>
-      <option value="Will Rice">6330 Main St.</option>
-      <option value="Hanszen">6350 Main St.</option>
-      <option value="Wiess">6340 Main St.</option>
-      <option value="Jones">23 Sunset Blvd.</option>
-      <option value="Brown">9 Sunset Blvd.</option>
-      <option value="Lovett">6310 Main St.</option>
-      <option value="Sid Richardson">6360 Main St.</option>
-      <option value="Martel">99 Sunset Blvd.</option>
-      <option value="McMurtry">1605 Rice Blvd.</option>
-      <option value="Duncan">1601 Rice Blvd.</option>
+      <option value="Baker"></option>
+      <option value="Will Rice"></option>
+      <option value="Hanszen"></option>
+      <option value="Wiess"></option>
+      <option value="Jones"></option>
+      <option value="Brown"></option>
+      <option value="Lovett"></option>
+      <option value="Sid Richardson"></option>
+      <option value="Martel"></option>
+      <option value="McMurtry"></option>
+      <option value="Duncan"></option>
       <option value="Herzstein Hall"></option>
       <option value="Sewall Hall"></option>
       <option value="RMC"></option>
