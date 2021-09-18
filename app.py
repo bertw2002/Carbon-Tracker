@@ -70,16 +70,16 @@ def interactivePage(username):
         print(modes)
         #print(schedule)
         if len(modes)==0 or len(locations)==0:
-            return render_template("interactivepage.html", username=username)
+            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
         if len(locations) - len(modes) !=1:
-            return render_template("interactivepage.html", username=username)
+            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
         userDataToDB(username, locations, modes)
         printDB()
-        return render_template("interactivepage.html", username=username)
+        return render_template("interactivepage.html", lenloc=len(locations), loc=locations, m=modes, username=username)
 
 
 
-    return render_template("interactivepage.html", username=username)
+    return render_template("interactivepage.html", loc=locations, m=modes, username=username)
 
 if __name__ == "__main__":
     app.run(debug=True)
