@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request, session, redirect, url_for
 import os
-from utl.dbFunction import createDB, addUser, checkUsername, checkUser
+from utl.dbFunction import *
 
 app = Flask(__name__)
 createDB()
@@ -65,11 +65,14 @@ def interactivePage(username):
         # for i in range(1, locations):
         #     schedule += modes[i] + ' to ' + locations[i] + ', '
         # schedule += 'etc.'
-        
+
         print(locations)
         print(modes)
         #print(schedule)
+        userDataToDB(username, locations, modes)
+        return render_template("interactivepage.html")
 
+    printDB()
 
     return render_template("interactivepage.html")
 

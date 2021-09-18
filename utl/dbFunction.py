@@ -18,7 +18,7 @@ def addUser(username,password):
     DB_FILE = "app.db"
     db = connect(DB_FILE)
     c = db.cursor()
-    c.execute("INSERT INTO users VALUES (?, ?)", (str(username), str(password)))
+    c.execute("INSERT INTO users VALUES (?,?,?,?)", (str(username), str(password), str(""), str("")))
     db.commit()
     db.close()
 
@@ -54,8 +54,8 @@ def checkUser(username, password):
                 return False
     else:
          return False
-        
-        
+
+
 #write user data to database
 def userDataToDB(user, locations, modes):
     str_locations = ""
@@ -73,8 +73,20 @@ def userDataToDB(user, locations, modes):
     db = connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("UPDATE users SET destination=str_locations, modeOfTransport=str_modes WHERE username=user"))
+    c.execute("UPDATE users SET destination=?, modeOfTransport=? WHERE username=?", (str(str_locations),str(str_modes),str(user)) )
 
     db.commit()
     db.close()
 
+
+#print database
+def printDB():
+    DB_FILE = "app.db"
+    db = connect(DB_FILE)
+    c = db.cursor()
+    cur = c.execute("SELECT * FROM users")
+    rows = cur.fetchall()
+    db.commit()
+    db.close()
+    for row in rows:
+        print(row)
