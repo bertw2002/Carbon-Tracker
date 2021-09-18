@@ -70,11 +70,12 @@ def interactivePage(username):
         print(modes)
         #print(schedule)
         userDataToDB(username, locations, modes)
-        return render_template("interactivepage.html")
+        printDB()
+        return render_template("interactivepage.html", username=username)
 
-    printDB()
 
-    return render_template("interactivepage.html")
+
+    return render_template("interactivepage.html", username=username)
 
 if __name__ == "__main__":
     app.run(debug=True)
