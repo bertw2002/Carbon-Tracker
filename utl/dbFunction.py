@@ -73,7 +73,7 @@ def userDataToDB(user, locations, modes):
     db = connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("UPDATE users SET destination=?, modeOfTransport=? WHERE username=?", (str(str_locations),str(str_modes),str(user)) )
+    c.execute("UPDATE users SET destination=?, modeOfTransport=? WHERE username=?", (str(str_locations),str(str_modes),str(user)))
 
     db.commit()
     db.close()
