@@ -7,10 +7,8 @@ def createDB():
     db = connect(DB_FILE)
     db.row_factory = Row
     c = db.cursor()
-    q = "CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT)"
-    b = "CREATE TABLE IF NOT EXISTS enteredData(destination TEXT, modeOfTransport TEXT)"
+    q = "CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT, destination TEXT, modeOfTransport TEXT)"
     c.execute(q)
-    c.execute(b)
     db.commit()
     db.close()
 
