@@ -11,6 +11,15 @@ body {
     font-size: 20px;
     padding: 8px 0;
     margin: 8px 0;
+    border-bottom: 1px solid #191970;
+}
+#textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    float: left;
+    margin: 0 10px;
 }
 
 #button {
@@ -32,4 +41,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #191970;
+}
+
+.but1{
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
 }
