@@ -3,9 +3,21 @@
 <html>
 <center>
   <head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/interactivepage.css') }}">
   </head>
   <body>
-    <h1>Your Stats</h1>
+    <h1>
+      Your Stats
+    </h1>
+    <p>
+      Insert stats here
+    </p>
+    <h1>
+      Edit your data
+    </h1>
+    <form action="/dataedit">
+      <input type="text" name="newlocation" placeholder="Enter Location">
+    </form>
   </body>
 </center>
 </html>
