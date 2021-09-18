@@ -3,9 +3,65 @@
 <html>
 <center>
   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/styles/interactivepage.css">
   </head>
   <body>
-    <h1>Your Stats</h1>
+    <h1>
+      Edit Your Schedule
+    </h1>
+
+    <form action="/app.py">
+      <label for="locationselect">Choose your "Home" Location:</label>
+      <input type="text" name="homeloc" id="homeloc" list="locations">
+
+      <p></p>
+
+      <label for="transportmodeselect">Choose a mode of transportation:</label>
+      <input type="text" name="mode1" id="mode1" list="modes">
+
+      <p></p>
+
+      <label for="locationselect">Next Location:</label>
+      <input type="text" name="loc1" id="loc1" list="locations">
+
+
+      <p></p>
+
+      
+      <input type="button" id="button" name="Add Location">
+
+      <input type="submit" id="button" name="Submit">
+    </form>
+
+    <datalist id="locations">
+      <option value="default">Select...</option>
+      <option value="Baker">6320 Main St.</option>
+      <option value="Will Rice">6330 Main St.</option>
+      <option value="Hanszen">6350 Main St.</option>
+      <option value="Wiess">6340 Main St.</option>
+      <option value="Jones">23 Sunset Blvd.</option>
+      <option value="Brown">9 Sunset Blvd.</option>
+      <option value="Lovett">6310 Main St.</option>
+      <option value="Sid Richardson">6360 Main St.</option>
+      <option value="Martel">99 Sunset Blvd.</option>
+      <option value="McMurtry">1605 Rice Blvd.</option>
+      <option value="Duncan">1601 Rice Blvd.</option>
+      <option value="Herzstein Hall"></option>
+      <option value="Sewall Hall"></option>
+      <option value="RMC"></option>
+      <option value="Fondren"></option>
+      <option value="Cambridge Office Building"></option>
+      <option value="Brockman Hall"></option>
+      <option value="Dell Butcher Hall"></option>
+      <option value="Rec Center"></option>
+      <option value="Shepherd School of Music"></option>
+    </datalist>
+    <datalist id="modes">
+      <option value="Walking"></option>
+      <option value="Biking or Skating"></option>
+      <option value="Driving"></option>
+    </datalist>
   </body>
 </center>
 </html>
