@@ -54,5 +54,27 @@ def checkUser(username, password):
                 return False
     else:
          return False
+        
+        
+#write user data to database
+def userDataToDB(user, locations, modes):
+    str_locations = ""
+    str_modes = ""
 
+    for location in locations:
+        str_locations += location + ","
+    str_locations = str_locations[:-1]
+
+    for mode in modes:
+        str_modes += mode + ","
+    str_modes = str_modes[:-1]
+
+    DB_FILE = "app.db"
+    db = connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("UPDATE users SET destination=str_locations, modeOfTransport=str_modes WHERE username=user"))
+
+    db.commit()
+    db.close()
 
