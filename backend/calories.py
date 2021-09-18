@@ -1,4 +1,5 @@
 #Base Python
+import os
 import requests
 import sys
 #Extended Python
@@ -13,7 +14,7 @@ class Calories():
         self.headers = {"Content-Type": "application/json"}
         self.locations = location_list
         self.mode = "walking"
-        self.key = "AIzaSyA5f6zNPcu302hvENF_rxbRzf8x0rHRQPA"
+        self.key = os.environ.get('GOOGLE_API_KEY')
         self.building_geo_mappings = {'Martel' : '29.7217,-95.3977', 'Brown': '29.7215,-95.3963', 'Hanszen': '29.7158,-95.4002',
             'Lovett':'29.7163,-95.3980', 'Wiess':'29.7147,-95.3998','Jones':'29.7215, -95.3698',
             'Duncan':'29.7218,-95.3985', 'McMurtry':'29.7204,-95.3978', 'Sid Richardson':'29.7151,-95.3991',
