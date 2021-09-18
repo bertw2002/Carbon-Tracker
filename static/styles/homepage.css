@@ -1,6 +1,6 @@
 
 #heading {
-
+    font-size: 60px;
 }
 
 #textbox {
@@ -9,7 +9,7 @@
     font-size: 20px;
     padding: 8px 0;
     margin: 8px 0;
-    border-bottom: 1px solid #191970;
+    border-bottom: 1px solid #000000;
 }
 #textbox input {
     border: none;
@@ -24,7 +24,7 @@
     width: 100%;
     padding: 8px;
     color: #ffffff;
-    background: none #191970;
+    background: #107403;
     border: none;
     border-radius: 6px;
     font-size: 18px;
@@ -35,10 +35,10 @@
 #body1{
   width: 280px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #191970;
+  color: #0d3807;
   font-family: sans-serif;
 }
 
@@ -49,17 +49,18 @@
   z-index: 1;
   top: 0;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 .right {
   right:0;
-  background-color: #284F8F;
+  background-color: #107403;
   z-index: 0;
+  padding-top: 120px;
 }
 
 #aboutus {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 br {
@@ -84,4 +85,11 @@ br {
   padding:0;
   cursor: pointer;
   font-family: sans-serif;
+}
+
+.footer{
+  position: fixed;
+  justify-content: center;
+  bottom: 5px;
+  left: 50px;
 }
