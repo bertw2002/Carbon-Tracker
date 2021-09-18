@@ -34,9 +34,27 @@ def createAccount():
 
 @app.route("/interactivepage/<username>")
 def interactivePage(username):
+    # if request.method == "POST":
+    #     loc0 = request.form["loc0"]
+    #     loc1 = request.form["loc1"]
+    #     loc2 = request.form["loc2"]
+    #     loc3 = request.form["loc3"]
+    #     loc4 = request.form["loc4"]
+    #     loc5 = request.form["loc5"]
+
+    #     mode1 = request.form["mode1"]
+    #     mode2 = request.form["mode2"]
+    #     mode3 = request.form["mode3"]
+    #     mode4 = request.form["mode4"]
+    #     mode5 = request.form["mode5"]
+
+    #     locations = [loc0, loc1, loc2, loc3, loc4, loc5]
+    #     modes = [mode1, mode2, mode3, mode4, mode5]
+
+    #     print(locations)
+    #     print(modes)
 
     return render_template("interactivepage.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)
