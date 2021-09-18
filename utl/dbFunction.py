@@ -1,9 +1,8 @@
 from sqlite3 import connect, Row
 
-
-
 #creates the tables users and topics
 def create():
+    print("HELLO")
     # Setup the database
     DB_FILE = "blogs.db"
     db = connect(DB_FILE)

@@ -6,10 +6,10 @@ from flask import redirect
 from flask import url_for
 import os
 import sqlite3
-
+from utl.dbFunction import create
 
 app = Flask(__name__)
-#create()
+create()
 
 @app.route("/")
 def root():
