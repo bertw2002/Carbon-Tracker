@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+<center>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/homepage.css') }}">
+  </head>
+  <body>
+    <h1 id="heading">Register for new account</h1>
+    <div class="textbox">
+    </div>
+
+    <form action="/checkCreate" method="GET">
+      <div id="textbox">
+        <input type="text" name="username" placeholder="username">
+      </div>
+      <div id="textbox">
+        <input type="password" name="password" placeholder="password">
+      </div>
+      <input id="button" type="submit" name="createAccount" value="Create">
+    </form>
+  </body>
+</center>
+</html>

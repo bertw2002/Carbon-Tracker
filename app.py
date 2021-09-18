@@ -17,6 +17,7 @@ def root():
 # has logout button to log out
 @app.route("/homepage")
 def homepage():
+    #if logged, display main page, else return
     return render_template("homepage.html")
 
 
@@ -27,9 +28,9 @@ def login():
 
 
 # removes session data for username
-@app.route("/createAccount")
+@app.route("/register")
 def createAccount():
-    return render_template("createAccount.html")
+    return render_template("register.html")
 
 
 if __name__ == "__main__":

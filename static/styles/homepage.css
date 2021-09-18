@@ -1,6 +1,4 @@
-body {
-  font-family: sans-serif;
-}
+
 #heading {
 
 }
@@ -41,6 +39,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #191970;
+    font-family: sans-serif;
 }
 
 .but1{
@@ -49,4 +48,5 @@ body {
   margin:0;
   padding:0;
   cursor: pointer;
+  font-family: sans-serif;
 }
