@@ -1,24 +1,35 @@
 Overall Project Idea:
 
-Fitness tracker based on daily schedule focused on sutainability using data
+  Fitness tracker based on daily schedule focused on sutainability using data
+  User puts in locations and other data
+  App tracks your movement and gives feedback on calories burned, carbon saved, etc.
+  The app gives you suggestions on ways to save carbon, get more fit, save time, etc.
 
 
-UX:
+Components:
 
-Web Application
-Dashboard showing stats
-User puts in locations
-App Tracks your movement and gives feedback on calories burned, carbon saved, etc.
+  Front End/UX:
+
+    Web Application
+    Dashboard showing stats
+    User inputs data to the system
+    Account system?
+
+  Back End:
+  
+    API Stuff
+    Keeping track of data (Google Cloud storage?)
+    Maps software
 
 
 Challenges:
 
-Rice Design
-Schlumberger
-D2K Lab
-Google Cloud
+  Rice Design
+  Schlumberger
+  D2K Lab
+  Google Cloud
 
 
 Track:
 
-Automation
+  Automation
