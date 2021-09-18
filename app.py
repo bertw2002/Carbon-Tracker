@@ -28,7 +28,7 @@ def createAccount():
         password = request.form["password"]
         if not checkUsername(username):
             addUser(username, password)
-            return redirect(url_for("interactivePage", username=username))
+            return redirect(url_for("root"))
 
     return render_template("register.html")
 
