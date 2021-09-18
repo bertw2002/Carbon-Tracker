@@ -9,7 +9,11 @@ import sqlite3
 
 
 app = Flask(__name__)
-create()
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
 # has logout button to log out
 @app.route("/homepage")
 def homepage():
