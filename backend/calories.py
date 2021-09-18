@@ -19,7 +19,7 @@ class Calories():
             'Duncan':'29.7218,-95.3985', 'McMurtry':'29.7204,-95.3978', 'Sid Richardson':'29.7151,-95.3991',
             'Baker': '29.7170,-95.3991', 'Will Rice': '29.7164,-95.3987', 'Herzstein Hall':'29.7187531,-95.3993396','Sewall Hall':'29.71716,-95.4003', 'Keck Hall': '29.71716, -95.4003274', 
             'RMC':'29.71716,-95.4003', 'Fondren':'29.7171619,-95.4003274', 'Cambridge Office Building':'29.7166941, -95.3988713', 
-            'Brockman Hall': '29.7170462,-95.4045214', 'Dell Butcher Hall':'29.7170462,-95.4045214', 'Rec center':'29.7165576,-95.4048481', 
+            'Brockman Hall': '29.7170462,-95.4045214', 'Dell Butcher Hall':'29.7170462,-95.4045214', 'Rec Center':'29.7165576,-95.4048481', 
             'Shepherd School of Music':'29.7165576,-95.4048481'}
 
     def total_distance(self):
