@@ -9,6 +9,7 @@ import sqlite3
 
 
 app = Flask(__name__)
+#create()
 
 @app.route("/")
 def root():
