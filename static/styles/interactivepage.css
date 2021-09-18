@@ -17,7 +17,7 @@
 }
 
 #button {
-    width: 100%;
+    width: 75%;
     padding: 8px;
     color: #ffffff;
     background: none #191970;
@@ -29,11 +29,12 @@
 }
 
 body {
-    width: 280px;
+    width: 400px;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: right;
     color: #191970;
     font-family: sans-serif;
 }
