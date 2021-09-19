@@ -6,6 +6,9 @@ import sys
 from pprint import pprint
 from session import get_rest
 
+#Database Python
+from sqlite3 import connect, Row
+
 class Computation():
     def __init__(self, location_list, modes):
         super().__init__()
@@ -15,6 +18,7 @@ class Computation():
         self.locations = location_list
         self.modes = modes
         self.key = os.environ.get('GOOGLE_API_KEY')
+        self.dist_list = []
         self.building_geo_mappings = {'Martel' : '29.72177,-95.39768', 'Brown': '29.72167,-95.39629', 'Hanszen': '29.71593,-95.40020',
             'Lovett':'29.71644,-95.39805', 'Wiess':'29.71523,-95.40079','Jones':'29.72166, -95.39680',
             'Duncan':'29.72199,-95.39849', 'McMurtry':'29.72062,-95.39773', 'Sid Richardson':'29.71514,-95.39905',
@@ -55,30 +59,58 @@ class Computation():
                     ttl_driving_distance+=distance
                 if self.modes[i] == 'cycling':
                     ttl_cycling_distance+=distance
-        return ttl_walking_distance/5280, ttl_cycling_distance/5280, ttl_driving_distance/5280
-
+        self.dist_list.append(ttl_walking_distance/5280)
+        self.dist_list.append(ttl_cycling_distance/5280)
+        self.dist_list.append(ttl_driving_distance/5280)
      
+    def walking_distance(self):
+        return round(self.dist_list[0], 1)
 
-    def total_calories(self):
-        dist_tup = self.total_distances()
-        cals = 75 * dist_tup[0] + 55 * dist_tup[1]
-        return int(cals)          
+    def cycling_distance(self):
+        return round(self.dist_list[1], 1)
+    
+    def driving_distance(self):
+        return round(self.dist_list[2], 1)
 
     def carbon_dioxide_saved(self):
-        dist_tup = self.total_distances()
-        non_driving_distance = dist_tup[0] + dist_tup[1]
-        return .9061 * non_driving_distance
+        non_driving_distance = self.dist_list[0] + self.dist_list[1]
+        pounds_saved = .9061 * non_driving_distance
+        return round(pounds_saved, 1)
 
-                
+    def total_calories(self):
+        cals = 75 * self.dist_list[0] + 55 * self.dist_list[1]
+        return int(cals)          
+
+    
+
+    def database_write(self, user,walked,biked,driven,co2,calories):
+        DB_FILE = "app.db"
+        db = connect(DB_FILE)
+        c = db.cursor()
+        c.execute("UPDATE users SET milesWalked=?, milesBiked=?, milesDriven=?, co2Saved=?, calories=? WHERE username=?", (str(walked),str(biked),str(driven),str(co2),str(calories),str(user)))
+        db.commit()
+        db.close()
     
                 
 
 
 if __name__ == "__main__":
-    comp = Computation(['Martel', 'Wiess', 'Greenbriar Lot', 'Martel'], ['walking', 'cycling', 'driving'])
-    print("Distance Walked: " + str(comp.total_distances()[0]) + " miles")
-    print("Distance Cycled: " + str(comp.total_distances()[1]) + " miles")
-    print("Distance Driven: " + str(comp.total_distances()[2]) + " miles")
-    print("Calories Burned: " + str(comp.total_calories()) + " calories")
-    print("Carbon Dioxide saved: " + str(comp.carbon_dioxide_saved()) + " pounds")
+    user_id = sys.argv[1]
+    locations_string = sys.argv[2][1:-1]
+    transport_modes_string = sys.argv[3][1:-1]
+
+    locations = locations_string.split(",")
+    transport_modes = transport_modes_string.split(",")
+    
+    comp = Computation(locations, transport_modes)
+    comp.total_distances()
+    walked_dist = comp.walking_distance()
+    cycled_dist = comp.cycling_distance()
+    driven_dist = comp.driving_distance()
+    carbon_dioxide_saved = comp.carbon_dioxide_saved()
+    calories_burned = comp.total_calories()
+
+    comp.database_write(user_id, walked_dist, cycled_dist, driven_dist, carbon_dioxide_saved, calories_burned)
+    
+
 
