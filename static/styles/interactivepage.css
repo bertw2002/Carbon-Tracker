@@ -1,4 +1,6 @@
-
+body{
+  background-color:white;
+}
 #textbox {
     width: 100%;
     overflow: hidden;
@@ -34,19 +36,6 @@
   transform: translate(-50%, -50%);
   color: #0d3807;
   font-family: sans-serif;
-}
-
-body {
-    background-color:black;
-    width: 75%;
-    height: 100%;
-    height: auto;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    transform: translate(-40%, -50%);
-    color: #107403;
-    font-family: sans-serif;
 }
 
 .but1{

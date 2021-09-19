@@ -10,8 +10,6 @@
     <h1>
       Edit Your Schedule
     </h1>
-    <div class="split left">
-    <div id="body1">
     <form id="locsmodes" method="POST">
 
       <label for="locationselect">First Location:</label>
@@ -56,9 +54,10 @@
 
       <label for="locationselect">Next Location:</label>
       <input type="text" name="loc4" id="loc4" list="locations">
-
+      <br>
 
       <input type="submit" form="locsmodes" id="button" name="Submit">
+      <br>
     </form>
     <div>
       {% if lenloc != -1 %}
@@ -95,9 +94,9 @@
         <th>Carbon Saved</th>
         <td>{{savedCO2}}</td>
       </tr>
+      <br>
     </div>
-    </div>
-    </div>
+
   </center>
 
     <datalist id="locations">

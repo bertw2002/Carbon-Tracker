@@ -37,7 +37,7 @@ def addUser(username,password):
     DB_FILE = "app.db"
     db = connect(DB_FILE)
     c = db.cursor()
-    c.execute("INSERT INTO users VALUES (?,?,?,?)", (str(username), str(password), str(""), str("")))
+    c.execute("INSERT INTO users VALUES (?,?,?,?,?,?,?,?,?)", (str(username), str(password), str(""), str(""),str(""), str(""),str(""), str(""),str("")))
     db.commit()
     db.close()
 
