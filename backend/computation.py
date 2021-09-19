@@ -6,14 +6,14 @@ import sys
 from pprint import pprint
 from session import get_rest
 
-class Calories():
-    def __init__(self, location_list):
+class Computation():
+    def __init__(self, location_list, modes):
         super().__init__()
         self.rest = get_rest()
         self.url = "https://maps.googleapis.com/maps/api/directions/json"
         self.headers = {"Content-Type": "application/json"}
         self.locations = location_list
-        self.mode = "walking"
+        self.modes = modes
         self.key = os.environ.get('GOOGLE_API_KEY')
         self.building_geo_mappings = {'Martel' : '29.72177,-95.39768', 'Brown': '29.72167,-95.39629', 'Hanszen': '29.71593,-95.40020',
             'Lovett':'29.71644,-95.39805', 'Wiess':'29.71523,-95.40079','Jones':'29.72166, -95.39680',
@@ -28,13 +28,15 @@ class Calories():
             'Rayzor Hall':'29.71801,-95.39903', 'Anderson Hall': '29.71896,-95.39974', 'Liu Idea Lab':'29.71714,-95.39717', 'West Servery':'29.72111,-95.39847', 'North Servery':'29.72193,-95.39655', 'Baker Servery':'29.71706,-95.39948', 'South Servery':'29.71524,-95.40121', 'Seibel Servery':'29.71609,-95.39820', 'Sid Richardson Servery':'29.71522,-95.39883', 'Holloway Field':'29.71294,-95.40207', 'Founders Court':'29.71939,-95.39719',
             'Greenbriar Lot':'29.71645,-95.41198', 'West Lot':'29.71654,-95.40678', 'North Lot':'29.72052,-95.40273', 'South Lot':'29.71542,-95.39813', 'Founders Court Lot':'29.71863, -95.39675', 'Lovett Hall Lot':'29.72000,-95.39729', 'North Colleges Lot':'29.72108,-95.39494', 'Hess Lot':'29.71344,-95.40521'}
 
-    def total_distance(self):
-        ttl_distance = 0.0
+    def total_distances(self):
+        ttl_walking_distance = 0.0
+        ttl_driving_distance = 0.0
+        ttl_cycling_distance = 0.0
         for i in range(len(self.locations)-1):
             start_point = self.locations[i]
             end_point = self.locations[i+1]
             if start_point in self.building_geo_mappings.keys() and end_point in self.building_geo_mappings.keys():
-                api_url = self.url + "?origin=" + self.building_geo_mappings[start_point] + "&destination=" + self.building_geo_mappings[end_point] + "&mode="+self.mode+"&key="+self.key
+                api_url = self.url + "?origin=" + self.building_geo_mappings[start_point] + "&destination=" + self.building_geo_mappings[end_point] + "&mode="+self.modes[i]+"&key="+self.key
                 response = self.rest.get(api_url)
                 if response.status_code not in range(200,300):
                     print(f"Failed to get data on {api_url}")
@@ -46,12 +48,26 @@ class Calories():
                     distance = float(distances[0]) * 5280
                 else:
                     distance = float(distances[0])
-                ttl_distance+=distance
-        return ttl_distance/5280  
+                
+                if self.modes[i] == 'walking':
+                    ttl_walking_distance+=distance
+                if self.modes[i] == 'driving':
+                    ttl_driving_distance+=distance
+                if self.modes[i] == 'cycling':
+                    ttl_cycling_distance+=distance
+        return ttl_walking_distance/5280, ttl_cycling_distance/5280, ttl_driving_distance/5280
+
+     
 
     def total_calories(self):
-        return int(75 * self.total_distance())          
+        dist_tup = self.total_distances()
+        cals = 75 * dist_tup[0] + 55 * dist_tup[1]
+        return int(cals)          
 
+    def carbon_dioxide_saved(self):
+        dist_tup = self.total_distances()
+        non_driving_distance = dist_tup[0] + dist_tup[1]
+        return .9061 * non_driving_distance
 
                 
     
@@ -59,7 +75,10 @@ class Calories():
 
 
 if __name__ == "__main__":
-    calorieCounter = Calories(['Martel', 'Wiess', 'Herzstein Hall'])
-    print("Distance: " + str(calorieCounter.total_distance()) + " miles")
-    print("Calories: " + str(calorieCounter.total_calories()) + " calories")
+    comp = Computation(['Martel', 'Wiess', 'Greenbriar Lot', 'Martel'], ['walking', 'cycling', 'driving'])
+    print("Distance Walked: " + str(comp.total_distances()[0]) + " miles")
+    print("Distance Cycled: " + str(comp.total_distances()[1]) + " miles")
+    print("Distance Driven: " + str(comp.total_distances()[2]) + " miles")
+    print("Calories Burned: " + str(comp.total_calories()) + " calories")
+    print("Carbon Dioxide saved: " + str(comp.carbon_dioxide_saved()) + " pounds")
 
