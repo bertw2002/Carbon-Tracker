@@ -12,6 +12,25 @@ def createDB():
     db.commit()
     db.close()
 
+#read database to frontend
+def dbDataToFrontend(user):
+    DB_FILE = "app.db"
+    db = connect(DB_FILE)
+    c = db.cursor()
+    cur = c.execute("SELECT * FROM users")
+    rows = cur.fetchall()
+    db.commit()
+    db.close()
+    for row in rows:
+        if row[0] == user:
+            walkedMiles=row[4]
+            bikedMiles=row[5]
+            drivenMiles=row[6]
+            savedCO2=row[7]
+            burnedCalories=row[8]
+
+    return (walkedMiles,bikedMiles,drivenMiles,savedCO2,burnedCalories)
+
 
 #Adds a user to the users table given user's input
 def addUser(username,password):

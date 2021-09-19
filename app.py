@@ -65,18 +65,19 @@ def interactivePage(username):
         # for i in range(1, locations):
         #     schedule += modes[i] + ' to ' + locations[i] + ', '
         # schedule += 'etc.'
-        
+
         # print(locations_string)
         # print(modes_string)
 
 
         #print(schedule)
         if len(modes)==0 or len(locations)==0:
-            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
+            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username,
+            walkedMiles=None, bikedMiles=None,drivenMiles=None,savedCO2=None,burnedCalories=None)
         if len(locations) - len(modes) !=1:
-            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
+            return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username,
+            walkedMiles=None, bikedMiles=None,drivenMiles=None,savedCO2=None,burnedCalories=None)
         userDataToDB(username, locations, modes)
-
         locations_string = "["
         for location in locations[:-1]:
             locations_string+="'"+location+"'"+","
@@ -89,13 +90,20 @@ def interactivePage(username):
 
         command = "python3 backend/computation.py " + str(username) + " " + locations_string + " " + modes_string
         os.system(command)
-
+        tup=dbDataToFrontend(username)
+        walkedMiles=tup[0]
+        bikedMiles=tup[1]
+        drivenMiles=tup[2]
+        savedCO2=tup[3]
+        burnedCalories=tup[4]
         printDB()
-        return render_template("interactivepage.html", lenloc=len(locations), loc=locations, m=modes, username=username)
+        return render_template("interactivepage.html", lenloc=len(locations), loc=locations, m=modes, username=username,
+        walkedMiles=walkedMiles, bikedMiles=bikedMiles,drivenMiles=drivenMiles,savedCO2=savedCO2,burnedCalories=burnedCalories)
 
 
 
-    return render_template("interactivepage.html", lenloc=-1,username=username)
+    return render_template("interactivepage.html", lenloc=-1,username=username,
+    walkedMiles=None, bikedMiles=None,drivenMiles=None,savedCO2=None,burnedCalories=None)
 
 if __name__ == "__main__":
     app.run(debug=True)
