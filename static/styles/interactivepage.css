@@ -53,6 +53,6 @@ body {
     justify-content: left;
     width: 60px;
     height: 60px;
-    left: 10px;
-    top: 10px;
+    left: -500px;
+    top: -30px;
   }
