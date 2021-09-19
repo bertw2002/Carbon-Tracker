@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/static/styles/interactivepage.css">
   </head>
   <body>
+    <center>
     <h1>
       Edit Your Schedule
     </h1>
@@ -59,8 +60,45 @@
 
       <input type="submit" form="locsmodes" id="button" name="Submit">
     </form>
+    <div>
+      {% if lenloc != -1 %}
+        Travel Itinerary:
+        {% for idx in range(lenloc - 1) %}
+          <li>{{loc[idx]}} {{m[idx]}} to {{loc[idx+1]}}</li>
+        {% endfor %}
+      {%else%}
+        Wrong Combination
+      {% endif %}
+    </div>
+    <br>
+    <div class="text12">
+      <tr>
+        <th>Calories Burned</th>
+        <td>{{burnedCalories}}</td>
+      </tr>
+      <br>
+      <tr>
+        <th>Miles Walked</th>
+        <td>{{walkedMiles}}</td>
+      </tr>
+      <br>
+      <tr>
+        <th>Miles driven</th>
+        <td>{{drivenMiles}}</td>
+      </tr>
+      <br>
+      <tr>
+        <th>Miles biked</th>
+        <td>{{bikedMiles}}</td>
+      </tr><br>
+      <tr>
+        <th>Carbon Saved</th>
+        <td>{{savedCO2}}</td>
+      </tr>
     </div>
     </div>
+    </div>
+  </center>
 
     <datalist id="locations">
       <option value="Martel"></option>
@@ -136,38 +174,5 @@
       <option value="cycling"></option>
       <option value="driving"></option>
     </datalist>
-    <div>
-      <br>
-      {% if lenloc != -1 %}
-        Travel Itinerary:
-        {% for idx in range(lenloc - 1) %}
-          <li>{{loc[idx]}} {{m[idx]}} to {{loc[idx+1]}}</li>
-        {% endfor %}
-      {%else%}
-        Wrong Combination
-      {% endif %}
-    </div>
-    <div class="split right">
-      <tr>
-        <th>Calories Burned</th>
-        <td>{{burnedCalories}}</td>
-      </tr>
-      <tr>
-        <th>Miles Walked</th>
-        <td>{{walkedMiles}}</td>
-      </tr>
-      <tr>
-        <th>Miles driven</th>
-        <td>{{drivenMiles}}</td>
-      </tr>
-      <tr>
-        <th>Miles biked</th>
-        <td>{{bikedMiles}}</td>
-      </tr>
-      <tr>
-        <th>Carbon Saved</th>
-        <td>{{savedCO2}}</td>
-      </tr>
-    </div>
   </body>
 </html>
