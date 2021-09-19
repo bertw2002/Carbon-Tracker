@@ -9,8 +9,10 @@
     <h1>
       Edit Your Schedule
     </h1>
+    <div class="split left">
+    <div id="body1">
+    <form id="locsmodes" method="POST">
 
-    <form id="locsmodes" method="POST" class="split left">
       <label for="locationselect">First Location:</label>
       <input type="text" name="loc0" id="loc0" list="locations">
 
@@ -57,6 +59,8 @@
 
       <input type="submit" form="locsmodes" id="button" name="Submit">
     </form>
+    </div>
+    </div>
 
     <datalist id="locations">
       <option value="Martel"></option>
@@ -143,7 +147,7 @@
         Wrong Combination
       {% endif %}
     </div>
-    <table class="split right">
+    <div class="split right">
       <tr>
         <th>Calories Burned</th>
         <td>{{burnedCalories}}</td>
@@ -164,7 +168,6 @@
         <th>Carbon Saved</th>
         <td>{{savedCO2}}</td>
       </tr>
-    </table>
+    </div>
   </body>
-  <img src="https://www.southwestern.edu/live/image/gid/14/width/1000/31492_Rice_University.rev.1548709245.jpg" class="pic">
 </html>
