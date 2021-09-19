@@ -29,12 +29,13 @@
 }
 
 body {
-    width: 400px;
+    width: 75%;
+    height: 100%;
+    height: auto;
     position: absolute;
     top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: right;
+    left: 40%;
+    transform: translate(-40%, -50%);
     color: #107403;
     font-family: sans-serif;
 }
@@ -56,3 +57,26 @@ body {
     left: -500px;
     top: -30px;
   }
+
+.split{
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 0px;
+  width: 50%;
+}
+
+.left{
+    justify-content: right;
+}
+
+.right{
+    right: 0;
+    justify-content: right;
+    transform: translate(40%, -50%);
+    font-size: 30px;
+}
+
+.class{
+    justify-content: right;
+}
