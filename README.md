@@ -1,2 +1,1 @@
-# Carbon Tracker
-https://docs.google.com/document/d/1cq_-INncmOznai-w59cM0WFKdhi47ALYcecYZVeNkMk/edit
+Carbon Tracker is a fitness tracker that analyzes your daily transportation methods with a focus on sustainability. It uses Google Maps API to determine distances, and then calculates your carbon footprint and calories burned.
