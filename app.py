@@ -65,15 +65,31 @@ def interactivePage(username):
         # for i in range(1, locations):
         #     schedule += modes[i] + ' to ' + locations[i] + ', '
         # schedule += 'etc.'
+        
+        # print(locations_string)
+        # print(modes_string)
 
-        print(locations)
-        print(modes)
+
         #print(schedule)
         if len(modes)==0 or len(locations)==0:
             return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
         if len(locations) - len(modes) !=1:
             return render_template("interactivepage.html", lenloc=-1, loc=locations, m=modes, username=username)
         userDataToDB(username, locations, modes)
+
+        locations_string = "["
+        for location in locations[:-1]:
+            locations_string+="'"+location+"'"+","
+        locations_string+="'" + locations[-1] + "'" + "]"
+
+        modes_string = "["
+        for mode in modes[:-1]:
+            modes_string += "'" + mode + "'"+ ","
+        modes_string+="'" + modes[-1] + "'" + "]"
+
+        command = "python3 backend/computation.py " + str(username) + " " + locations_string + " " + modes_string
+        os.system(command)
+
         printDB()
         return render_template("interactivepage.html", lenloc=len(locations), loc=locations, m=modes, username=username)
 
